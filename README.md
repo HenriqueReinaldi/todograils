@@ -1,23 +1,22 @@
-## Grails 6.2.3 Documentation
+### Sobre:
+Esta é uma TODO-list simples feita em groovy com o frameork GRAILS.
 
-- [User Guide](https://docs.grails.org/6.2.3/guide/index.html)
-- [API Reference](https://docs.grails.org/6.2.3/api/index.html)
-- [Grails Guides](https://guides.grails.org/index.html)
----
+O programa apresenta uma API com CRUD completo de itens da lista de tarefas.
 
-## Feature geb documentation
+### Tecnologias usadas:
 
-- [Grails Geb Functional Testing for Grails documentation](https://github.com/grails3-plugins/geb#readme)
+- Java Temurin 17.0.20
+- Groovy 5.1.0
+- Grails Framework 6.2.3
+- PostgreSQL
 
-- [https://www.gebish.org/manual/current/](https://www.gebish.org/manual/current/)
+### Para rodar:
 
-## Feature scaffolding documentation
+- Crie um banco 'todolist' no postgres. É necessário também um usuário 'postgres' com senha 'postgres' com acesso completo ao banco.
+- Se o grails falhar em criar a tabela item, use o schema em `recursos/schema.sql`.
+- Rode ./gradlew bootRun
+    - ou ./gradlew bR
 
-- [Grails Scaffolding Plugin documentation](https://grails.github.io/scaffolding/latest/groovydoc/)
+### Informações:
 
-- [https://grails-fields-plugin.github.io/grails-fields/latest/guide/index.html](https://grails-fields-plugin.github.io/grails-fields/latest/guide/index.html)
-
-## Feature asset-pipeline-grails documentation
-
-- [Grails Asset Pipeline Core documentation](https://www.asset-pipeline.com/manual/)
-
+- Um arquivo simples de requisições pode ser encontrado em `recursos/requests.http`. Serve como uma documentação básica

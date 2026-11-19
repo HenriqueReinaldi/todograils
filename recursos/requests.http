@@ -1,7 +1,9 @@
 GET http://localhost:8080/item
 ###
 
-GET http://localhost:8080/item?categoria=ffffffff&status=DONE
+
+### é possivel procurar por categoria, status e prioridade.
+GET http://localhost:8080/item?prioridade=5
 
 ###
 
@@ -13,17 +15,16 @@ Content-Type: application/json
   "descricao": "ssssssss",
   "status": "DONE",
   "categoria": "ffffffff",
-  "prioridade": "1",
-  "termino": "2002-02-02"
+  "prioridade": "5",
 }
 
 
 ###
-PUT http://localhost:8080/item/2
+PUT http://localhost:8080/item/7
 Content-Type: application/json
 
 {
-  "categoria": "pedro pinchas"
+  "termino" : "2002-02-02"
 }
 
 ###

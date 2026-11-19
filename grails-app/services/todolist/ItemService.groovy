@@ -30,7 +30,7 @@ class ItemService {
                 eq('status', params.status)
             }
             if (params.prioridade) {
-                eq('prioridade', params.prioridade)
+                eq('prioridade', params.prioridade as Integer)
             }
             if (params.categoria) {
                 eq('categoria', params.categoria)
