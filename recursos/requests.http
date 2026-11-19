@@ -1,0 +1,28 @@
+GET http://localhost:8080/item
+
+###
+
+POST http://localhost:8080/item
+Content-Type: application/json
+
+{
+  "nome": "fazer coissdfaasdfasdfs",
+  "descricao": "ssssssss",
+  "status": "TODO",
+  "categoria": "ffffffff",
+  "prioridade": "1",
+  "termino": "2002-02-02"
+}
+
+
+###
+PUT http://localhost:8080/item/2
+Content-Type: application/json
+
+{
+  "categoria": "pedro pinchas"
+}
+
+###
+
+DELETE http://localhost:8080/item/1
