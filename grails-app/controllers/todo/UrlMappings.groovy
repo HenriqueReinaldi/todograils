@@ -2,15 +2,11 @@ package todo
 
 class UrlMappings {
     static mappings = {
-        "/$controller/$action?/$id?(.$format)?"{
-            constraints {
-                // apply constraints here
-            }
-        }
+        "/item"(controller: "item", action: "index", method: "GET")
+        "/item"(controller: "item", action: "novo", method: "POST")
 
         "/"(view:"/index")
         "500"(view:'/error')
         "404"(view:'/notFound')
-
     }
 }
