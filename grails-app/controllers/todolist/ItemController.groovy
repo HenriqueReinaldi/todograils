@@ -30,7 +30,7 @@ class ItemController {
     def novo() {
         Item item = itemService.novo(request.JSON as Map)
         if (item) {
-            render(item as JSON)
+             render status: 201, text: (item as JSON), contentType: 'application/json'
         } else {
             render status: 400, text: "deu ruim..."
         }
