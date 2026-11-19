@@ -1,4 +1,7 @@
 GET http://localhost:8080/item
+###
+
+GET http://localhost:8080/item?categoria=ffffffff&status=DONE
 
 ###
 
@@ -8,7 +11,7 @@ Content-Type: application/json
 {
   "nome": "fazer coissdfaasdfasdfs",
   "descricao": "ssssssss",
-  "status": "TODO",
+  "status": "DONE",
   "categoria": "ffffffff",
   "prioridade": "1",
   "termino": "2002-02-02"

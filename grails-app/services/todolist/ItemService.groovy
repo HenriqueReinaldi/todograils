@@ -25,7 +25,17 @@ findAllby... mesma coisa de cima, só que todos resulttados
 class ItemService {
 
     List<Item> list(Map params) {
-        Item.list(params)
+        Item.createCriteria().list(params) {
+            if (params.status) {
+                eq('status', params.status)
+            }
+            if (params.prioridade) {
+                eq('prioridade', params.prioridade)
+            }
+            if (params.categoria) {
+                eq('categoria', params.categoria)
+            }
+        } as List<Item>
     }
 
     Long count() {
