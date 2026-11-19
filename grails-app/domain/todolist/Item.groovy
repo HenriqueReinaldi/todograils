@@ -11,7 +11,7 @@ class Item {
     static constraints = {
         prioridade min: 1, max: 5, nullable: false
         nome blank: false, nullable: false, maxSize: 50
-        status nullable: false, blank: false, inList: ["TODO", "DOING", "DONE"]
+        status nullable: false, blank: false, inList: ["TODO", "DOING", "DONE"], maxSize: 20
         descricao nullable: true, maxSize: 500
         categoria nullable: true, maxSize: 50
         termino nullable: true

@@ -21,7 +21,7 @@ findAllby... mesma coisa de cima, só que todos resulttados
 * */
 
 @CompileStatic
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 class ItemService {
 
     List<Item> list(Map params) {
