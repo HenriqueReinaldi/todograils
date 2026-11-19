@@ -28,9 +28,31 @@ class ItemController {
     }
 
     def novo() {
-        def corpo = request.JSON
-
-
-        render([teste: corpo.valor, metodo: corpo.metodo] as JSON)
+        Item item = itemService.novo(request.JSON as Map)
+        if (item) {
+            render(item as JSON)
+        } else {
+            render status: 400, text: "deu ruim..."
+        }
     }
+
+    def atualizar(Integer id) {
+        boolean status = itemService.atualizar(request.JSON as Map, id)
+        if (status) {
+            render status: 200, text: "atualiozado!"
+        } else {
+            render status: 400, text: "deu ruim..."
+        }
+    }
+
+    def remover(Integer id){
+        boolean status = itemService.remover(id)
+        if (status) {
+            render status: 200, text: "eviscerado!!!"
+        } else {
+            render status: 400, text: "deu ruim..."
+        }
+    }
+
+
 }
