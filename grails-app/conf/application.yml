@@ -77,3 +77,5 @@ grails:
   codegen:
     defaultPackage: todo
   profile: web
+  cors:
+    enabled: true
