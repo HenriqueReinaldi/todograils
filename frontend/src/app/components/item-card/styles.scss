@@ -1,0 +1,24 @@
+.tarefa-card {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  max-width: 40vw;
+}
+
+.tarefa-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.tarefa-info {
+}
+
+.tarefa-desc {
+
+}
+
+.tarefa-bottom {
+  display: flex;
+  justify-content: space-between;
+}

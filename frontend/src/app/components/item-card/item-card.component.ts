@@ -7,7 +7,7 @@ import { Item } from 'src/app/domain/item-model';
 @Component({
   selector: 'app-item-card',
   templateUrl: './item-card.component.html',
-  styleUrls: []
+  styleUrls: ['styles.scss']
 })
 export class ItemCardComponent implements OnInit, OnDestroy{
   constructor (private itemService:ItemService ) {}

@@ -1,7 +1,31 @@
-<p>item-card works!</p>
-
 <ul>
-  <li *ngFor="let item of itens">
-    {{ item.nome }}
+  <li style="list-style: none;" *ngFor="let item of itens">
+    <div class="tarefa-card">
+
+      <div class="tarefa-header">
+        <div> {{ item.nome }} </div>
+        <div>#{{ item.id }}</div>
+      </div>
+      <div class="tarefa-info">
+        Status: {{ item.status }} | Categoria: {{ item.categoria }} | Prioridade: {{ item.prioridade }}
+      </div>
+      <br>
+
+      <div class="tarefa-desc">
+        <div> {{ item.descricao }} </div>
+      </div>
+
+      <br>
+      <div class="tarefa-bottom">
+        <div>
+          <button>Editar</button>
+          <button>Eviscerar</button>
+        </div>
+        <div *ngIf="item.termino">
+          Termino: {{ item.termino.dayOfMonth | number:'2.0' }}/{{ item.termino.monthValue | number:'2.0' }}/{{ item.termino.year }}
+        </div>
+      </div>
+
+    </div>
   </li>
 </ul>
