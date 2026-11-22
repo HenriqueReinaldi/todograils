@@ -1,1 +1,22 @@
-<p>criacao-home works!</p>
+<app-header></app-header>
+
+<p>Status: {{status}} </p>
+
+<p>Adicionar tarefa:</p>
+
+<form [formGroup]="formulario" (ngSubmit)="enviar()">
+  <input type="text" placeholder="nome" formControlName="nome"><br>
+  <input type="text" placeholder="descricao" formControlName="descricao"><br>
+  <input type="text" placeholder="categoria" formControlName="categoria"><br>
+  <select formControlName="status">
+    <option value="TODO">TODO</option>
+    <option value="DOING">DOING</option>
+    <option value="DONE">DONE</option>
+  </select><br>
+  <label for="prioridade">prioridade:</label> <br>
+  <input name="prioridade"type="number" min=1 max=5 formControlName="prioridade">
+
+  <br><br>
+
+  <button type="submit" [disabled]="formulario.invalid"> ADICIONAR </button>
+</form>

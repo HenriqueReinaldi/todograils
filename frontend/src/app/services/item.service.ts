@@ -1,7 +1,7 @@
+import { Item } from './../domain/item-model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Item } from '../domain/item-model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +17,9 @@ export class ItemService {
 
   removerItem(id: number): Observable<string> {
     return this.http.delete(`${this.apiUrl}/${id.toString()}`, { responseType: 'text'} )
+  }
+
+  adicionarItem(item: Item): Observable<Item> {
+    return this.http.post<Item>(this.apiUrl, item)
   }
 }

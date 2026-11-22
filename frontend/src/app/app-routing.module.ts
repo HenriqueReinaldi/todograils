@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: "novo",
-    component: CriacaoHomeComponent,
+    loadChildren: () => import("./modules/criacao/criacao.module").then(m => m.CriacaoModule)
   }
 ];
 
