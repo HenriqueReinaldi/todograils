@@ -18,7 +18,7 @@ class ItemController {
 //    }
 
     def index() {
-        params.max = Math.min(params.int('max') ?: 10, 100)
+        //params.max = Math.min(params.int('max') ?: 10, 100)
         params.sort = params.sort ?: "prioridade"
         params.order = params.order ?: "asc"
 

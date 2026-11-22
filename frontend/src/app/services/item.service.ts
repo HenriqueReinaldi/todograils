@@ -14,4 +14,8 @@ export class ItemService {
   getItens(): Observable<Item[]> {
     return this.http.get<Item[]>(this.apiUrl)
   }
+
+  removerItem(id: number): Observable<string> {
+    return this.http.delete(`${this.apiUrl}/${id.toString()}`, { responseType: 'text'} )
+  }
 }

@@ -1,7 +1,9 @@
+
+<p> {{ status }} </p>
+
 <ul>
   <li style="list-style: none;" *ngFor="let item of itens">
-    <div class="tarefa-card">
-
+    <div class="tarefa-card" [class.explosao]="explodindo.has(item.id)">
       <div class="tarefa-header">
         <div> {{ item.nome }} </div>
         <div>#{{ item.id }}</div>
@@ -19,7 +21,7 @@
       <div class="tarefa-bottom">
         <div>
           <button>Editar</button>
-          <button>Eviscerar</button>
+          <button (click)="deletar(item)">Eviscerar</button>
         </div>
         <div *ngIf="item.termino">
           Termino: {{ item.termino.dayOfMonth | number:'2.0' }}/{{ item.termino.monthValue | number:'2.0' }}/{{ item.termino.year }}
