@@ -24,14 +24,13 @@
 }
 
 .explosao{
-  animation: explodir 0.1s ease-out forwards;
+  animation: explodir 0.1s ease-in forwards;
 }
 
 @keyframes explodir {
   to {
-    transform: scale(1.5);
+    transform: scale(1.5) rotate(180deg);
     background: rgb(255, 153, 0);
     opacity: 0;
-
   }
 }

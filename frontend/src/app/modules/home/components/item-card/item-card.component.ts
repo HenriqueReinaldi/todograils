@@ -1,7 +1,7 @@
 import { Subject, takeUntil } from 'rxjs';
-import { ItemService } from './../../services/item.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Item } from 'src/app/domain/item-model';
+import { ItemService } from 'src/app/services/item.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class ItemCardComponent implements OnInit, OnDestroy{
 
   private readonly destroy$: Subject<void> = new Subject()
   public itens: Item[] = [];
-  public status: string = "";
+  public status: string = "nada acontecendo!";
   public explodindo: Set<number> = new Set<number>();
 
   deletar(item: Item): void {
@@ -23,7 +23,7 @@ export class ItemCardComponent implements OnInit, OnDestroy{
         console.log(resposta)
         this.explodindo.add(item.id)
         setTimeout(() => {
-          this.status = resposta
+          this.status = `${resposta}: item ${item.id}`
           this.getItens()
         }, 300);
       },
