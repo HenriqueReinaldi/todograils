@@ -1,8 +1,39 @@
 
 <p> Status: {{ status }} </p>
 
+
 <div *ngIf="mostrandoEditor">
   <app-item-editor (fecharOut)="mostrandoEditor=false; getItens()" [itemInput]="itemSelecionado"></app-item-editor>
+</div>
+
+
+<div class="filtros">
+  <div>
+    status <br>
+    <select name="status" [(ngModel)]="filtroStatus" (change)="getItens()">
+      <option value="TODO">TODO</option>
+      <option value="DOING">DOING</option>
+      <option value="DONE">DONE</option>
+      <option value="" selected>QUALQUER</option>
+    </select>
+  </div>
+  <div>
+    prioridade <br>
+    <select [(ngModel)]="filtroPrioridade" (change)="getItens()">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="" selected>QUALQUER</option>
+    </select>
+  </div>
+  <div>
+    categoria <br>
+    <input [(ngModel)]="filtroCategoria" (input)="getItens()" placeholder="qualquer">
+  </div>
+
+
 </div>
 
 <ul>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from 'src/app/components/header/header.component';
-import { ItemCardComponent } from '../item-card/item-card.component';
+import { ItemCardComponent } from '../item-cards/item-cards.component';
 
 @Component({
   selector: 'app-home',

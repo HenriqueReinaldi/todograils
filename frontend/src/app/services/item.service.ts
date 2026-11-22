@@ -11,8 +11,8 @@ export class ItemService {
 
   private apiUrl = "http://localhost:8080/item"
 
-  getItens(): Observable<Item[]> {
-    return this.http.get<Item[]>(this.apiUrl)
+  getItens(query: string): Observable<Item[]> {
+    return this.http.get<Item[]>(`${this.apiUrl}${query}`)
   }
 
   removerItem(id: number): Observable<string> {

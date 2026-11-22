@@ -6,7 +6,7 @@ import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-item-card',
-  templateUrl: './item-card.component.html',
+  templateUrl: './item-cards.component.html',
   styleUrls: ['styles.scss']
 })
 export class ItemCardComponent implements OnInit, OnDestroy{
@@ -17,6 +17,11 @@ export class ItemCardComponent implements OnInit, OnDestroy{
   // ATRIBUTOS!
   public mostrandoEditor: boolean = false;
   public itemSelecionado!: Item;
+
+  public filtroStatus: string = '';
+  public filtroPrioridade: string = '';
+  public filtroCategoria: string = '';
+  public filtroQuery: string = '';
 
   public itens: Item[] = [];
   public status: string = "nada acontecendo!";
@@ -40,9 +45,14 @@ export class ItemCardComponent implements OnInit, OnDestroy{
     this.getItens()
   }
   getItens() {
-    this.itemService.getItens().pipe(takeUntil(this.destroy$)).subscribe({
+    this.filtrar()
+
+    this.itemService.getItens(this.filtroQuery).pipe(takeUntil(this.destroy$)).subscribe({
       next: (resposta) => {
         this.itens = resposta
+        this.itens = this.itens.sort((a,b) => {
+          return a.id - b.id
+        })
         console.log(resposta)
       },
       error: (err) => {
@@ -53,6 +63,26 @@ export class ItemCardComponent implements OnInit, OnDestroy{
   mostrarEditor(item: Item): void {
     this.itemSelecionado = item
     this.mostrandoEditor = true
+  }
+  filtrar() {
+    this.filtroQuery = ""
+
+    let filtros: string[] = []
+
+    if (this.filtroStatus != "") {
+      filtros.push(`status=${this.filtroStatus}`)
+    }
+    if (this.filtroCategoria != ""){
+      filtros.push(`categoria=${this.filtroCategoria}`)
+    }
+    if (this.filtroPrioridade != "") {
+      filtros.push(`prioridade=${this.filtroPrioridade}`)
+    }
+
+    let resultado: string = filtros.join("&")
+    if (resultado == "") return
+
+    this.filtroQuery = "?" + resultado
   }
 
   //CICLOS DE VIDA
