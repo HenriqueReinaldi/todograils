@@ -1,7 +1,7 @@
 ### Sobre:
-Esta é uma TODO-list simples feita em groovy com o frameork GRAILS.
+Esta é uma TODO-list simples feita em groovy com o framework GRAILS e typescript com o framework ANGULAR.
 
-O programa apresenta uma API com CRUD completo de itens da lista de tarefas.
+O programa apresenta backend+banco e frontend com comunicação por meio de uma API.
 
 ### Tecnologias usadas:
 
@@ -9,6 +9,8 @@ O programa apresenta uma API com CRUD completo de itens da lista de tarefas.
 - Groovy 5.1.0
 - Grails Framework 6.2.3
 - PostgreSQL
+- Angular framework 16.2.16
+- TypeScript 7.0.2
 
 ### Para rodar:
 
@@ -16,6 +18,9 @@ O programa apresenta uma API com CRUD completo de itens da lista de tarefas.
 - Se o grails falhar em criar a tabela item, use o schema em `recursos/schema.sql`.
 - Rode ./gradlew bootRun
     - ou ./gradlew bR
+- Com o banckend rodando, entre em `frontend/`.
+- Rode `ng s` para executar o frontend. O app está servido em `http://localhost:4200`
+    - ou `ng s --o` para abrir o navegador na página principal.
 
 ### Informações:
 
