@@ -22,9 +22,9 @@ export class CriacaoHomeComponent implements OnDestroy{
   }
 
   public formulario = new FormGroup({
-    nome: new FormControl('', Validators.required),
-    descricao: new FormControl(''),
-    categoria: new FormControl(''),
+    nome: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    descricao: new FormControl('', Validators.maxLength(500)),
+    categoria: new FormControl('', Validators.maxLength(50)),
     status: new FormControl('TODO'),
     prioridade: new FormControl(1, Validators.required)
   })

@@ -57,9 +57,9 @@ export class ItemEditorComponent implements OnChanges, OnDestroy {
   ngOnChanges(): void {
     this.itemSelecionado = this.itemInput
     this.formulario = new FormGroup({
-      nome: new FormControl(this.itemSelecionado.nome),
-      descricao: new FormControl(this.itemSelecionado.descricao),
-      categoria: new FormControl(this.itemSelecionado.categoria),
+      nome: new FormControl(this.itemSelecionado.nome, [Validators.required, Validators.maxLength(50)]),
+      descricao: new FormControl(this.itemSelecionado.descricao, Validators.maxLength(500)),
+      categoria: new FormControl(this.itemSelecionado.categoria, Validators.maxLength(50)),
       status: new FormControl(this.itemSelecionado.status),
       prioridade: new FormControl(this.itemSelecionado.prioridade),
       feito: new FormControl(this.itemSelecionado.termino ? true : false)
