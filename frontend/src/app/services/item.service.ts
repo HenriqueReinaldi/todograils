@@ -22,4 +22,8 @@ export class ItemService {
   adicionarItem(item: Item): Observable<Item> {
     return this.http.post<Item>(this.apiUrl, item)
   }
+
+  atualizarItem(item: Item): Observable<string> {
+    return this.http.put(`${this.apiUrl}/${item.id.toString()}`, item, { responseType: 'text'} )
+  }
 }

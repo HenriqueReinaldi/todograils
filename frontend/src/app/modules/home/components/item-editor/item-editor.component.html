@@ -1,0 +1,27 @@
+
+<div class="overlay">
+
+  <p>Editar tarefa</p>
+
+  <form [formGroup]="formulario" (ngSubmit)="enviar()">
+    <input type="text" placeholder="nome" formControlName="nome"> nome<br>
+    <input type="text" placeholder="descricao" formControlName="descricao"> descricao<br>
+    <input type="text" placeholder="categoria" formControlName="categoria"> categoria <br>
+    status: <select formControlName="status">
+      <option value="TODO">TODO</option>
+      <option value="DOING">DOING</option>
+      <option value="DONE">DONE</option>
+    </select><br>
+    <label for="feito">marcar como feito?</label>
+    <input type="checkbox" name="feito" formControlName="feito"><br>
+    <label for="prioridade">prioridade:</label>
+    <input name="prioridade"type="number" min=1 max=5 formControlName="prioridade">
+
+    <br><br>
+
+    <button type="submit" [disabled]="formulario.invalid"> salvamentos </button>
+  </form>
+  <button (click)="fechar()">fechar</button>
+
+
+</div>

@@ -62,10 +62,11 @@ class ItemService {
             }
 
             List<String> propriedades_nomes = ['nome', 'descricao', 'categoria', 'status', 'termino', 'prioridade']
-            Map<String, String> propriedades = params.subMap(propriedades_nomes) as Map<String, String>
+            Map<String, Object> propriedades = params.subMap(propriedades_nomes)
 
             if (propriedades.containsKey('termino')) {
-                propriedades.termino = LocalDate.parse(propriedades.termino)
+                if (propriedades.termino == "") propriedades.termino = null
+                else propriedades.termino = LocalDate.parse(propriedades.termino as String)
             }
 
             if (propriedades.containsKey('prioridade')) {

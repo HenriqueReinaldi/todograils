@@ -10,13 +10,19 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['styles.scss']
 })
 export class ItemCardComponent implements OnInit, OnDestroy{
+  //CONSTRUTOR + DESTROY
   constructor ( private itemService:ItemService ) {}
-
   private readonly destroy$: Subject<void> = new Subject()
+
+  // ATRIBUTOS!
+  public mostrandoEditor: boolean = false;
+  public itemSelecionado!: Item;
+
   public itens: Item[] = [];
   public status: string = "nada acontecendo!";
   public explodindo: Set<number> = new Set<number>();
 
+  // FUNCOES
   deletar(item: Item): void {
     this.itemService.removerItem(item.id).pipe(takeUntil(this.destroy$)).subscribe({
       next: (resposta) => {
@@ -33,8 +39,6 @@ export class ItemCardComponent implements OnInit, OnDestroy{
     })
     this.getItens()
   }
-
-
   getItens() {
     this.itemService.getItens().pipe(takeUntil(this.destroy$)).subscribe({
       next: (resposta) => {
@@ -46,15 +50,17 @@ export class ItemCardComponent implements OnInit, OnDestroy{
       }
     })
   }
+  mostrarEditor(item: Item): void {
+    this.itemSelecionado = item
+    this.mostrandoEditor = true
+  }
 
+  //CICLOS DE VIDA
   ngOnInit(): void {
     this.getItens()
   }
-
-
   ngOnDestroy(): void {
     this.destroy$.next()
     this.destroy$.complete()
   }
-
 }

@@ -1,6 +1,10 @@
 
 <p> Status: {{ status }} </p>
 
+<div *ngIf="mostrandoEditor">
+  <app-item-editor (fecharOut)="mostrandoEditor=false; getItens()" [itemInput]="itemSelecionado"></app-item-editor>
+</div>
+
 <ul>
   <li style="list-style: none;" *ngFor="let item of itens">
     <div class="tarefa-card" [class.explosao]="explodindo.has(item.id)">
@@ -20,7 +24,7 @@
       <br>
       <div class="tarefa-bottom">
         <div>
-          <button>Editar</button>
+          <button (click)="mostrarEditor(item)">Editar</button>
           <button (click)="deletar(item)">Eviscerar</button>
         </div>
         <div *ngIf="item.termino">
